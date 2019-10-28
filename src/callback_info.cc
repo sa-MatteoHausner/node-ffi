@@ -212,7 +212,7 @@ void CallbackInfo::Initialize(v8::Local<Object> target) {
   auto context = v8::Isolate::GetCurrent()->GetCurrentContext();
 	Nan::Set(target,
     Nan::New<String>("Callback").ToLocalChecked(),
-		Nan::New<FunctionTemplate>(Callback)->GetFunction(context).ToLocalChecked());
+		Nan::GetFunction(Nan::New<FunctionTemplate>(Callback)).ToLocalChecked());
 
   // initialize our threaded invokation stuff
 #ifdef WIN32
